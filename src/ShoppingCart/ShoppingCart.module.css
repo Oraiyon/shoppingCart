@@ -89,3 +89,37 @@
   text-align: end;
   margin-right: 8px;
 }
+
+@media (max-width: 382px) {
+  .product {
+    max-width: 175px;
+  }
+
+  .product img {
+    max-width: 100px;
+  }
+
+  .cartItem button {
+    max-width: 25px;
+  }
+}
+
+@media (max-width: 354px) {
+  .cartItem button {
+    max-width: 20px;
+  }
+
+  .buttonVersion p {
+    max-width: 25px;
+  }
+}
+
+@media (max-width: 336px) {
+  .buttonVersion {
+    gap: 2px;
+  }
+
+  .buttonVersion p {
+    max-width: 20px;
+  }
+}
