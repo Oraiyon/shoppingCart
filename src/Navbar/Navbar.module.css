@@ -2,7 +2,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: gray;
+  background-color: dimgray;
   padding: 8px;
   margin-bottom: 8px;
   position: relative;
@@ -15,7 +15,7 @@ nav {
 .link {
   display: flex;
   align-items: center;
-  background-color: gray;
+  background-color: dimgray;
   color: white;
   height: 100%;
   transform: scale(1.5);
