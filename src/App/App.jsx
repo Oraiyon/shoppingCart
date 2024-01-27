@@ -47,7 +47,16 @@ function App() {
       id: items[index].id,
       image: items[index].image,
     };
-    setCart((c) => [...c, item]);
+    if (cart.some((product) => product.id === item.id)) {
+      const product = cart.find((i) => i.id === item.id);
+      product.amount++;
+      const productIndex = cart.findIndex((i) => i.id === item.id);
+      const filtered = cart.filter((i) => i.id !== item.id);
+      filtered.splice(productIndex, 0, product);
+      setCart(filtered);
+    } else {
+      setCart((c) => [...c, item]);
+    }
   };
 
   return (
