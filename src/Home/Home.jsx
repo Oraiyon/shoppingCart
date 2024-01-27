@@ -24,7 +24,7 @@ const Home = () => {
                   <button onClick={() => handleSelected(index)}>
                     Show Info
                   </button>
-                  <p>${item.price}</p>
+                  <p>${item.price.toFixed(2)}</p>
                   <button onClick={() => putInCart(index)}>Add To Cart</button>
                 </div>
               </>
@@ -40,7 +40,7 @@ const Home = () => {
                   <button onClick={() => handleSelected(index)}>
                     Hide Info
                   </button>
-                  <p>${item.price}</p>
+                  <p>${item.price.toFixed(2)}</p>
                   <button onClick={() => putInCart(index)}>Add To Cart</button>
                 </div>
               </>
