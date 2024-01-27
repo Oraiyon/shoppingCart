@@ -15,6 +15,9 @@ const Navbar = (props) => {
       {props.currentPage === "home" ? (
         <>
           <h1 className={styles.pageName}>Home</h1>
+          <p className={styles.cartAmount}>
+            {props.cart.reduce((acc, item) => acc + item.amount, 0)}
+          </p>
           <button onClick={changeCurrentPage}>
             <NavLink to={"/cart"} className={styles.link}>
               <Icon path={mdiCart} size={1} />

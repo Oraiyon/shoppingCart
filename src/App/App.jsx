@@ -52,7 +52,11 @@ function App() {
 
   return (
     <>
-      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Navbar
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        cart={cart}
+      />
       <Outlet context={[items, putInCart, cart, setCart]} />
     </>
   );

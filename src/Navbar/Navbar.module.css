@@ -5,6 +5,7 @@ nav {
   background-color: gray;
   padding: 8px;
   margin-bottom: 8px;
+  position: relative;
 }
 
 .pageName {
@@ -22,4 +23,9 @@ nav {
 
 .link:hover {
   color: black;
+}
+
+.cartAmount {
+  position: absolute;
+  right: 40px;
 }
