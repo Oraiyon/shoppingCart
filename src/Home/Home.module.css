@@ -1,0 +1,33 @@
+.itemCards {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 300px);
+  gap: 8px;
+  margin: 0 8px;
+}
+
+.itemCard > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.itemCard > div > img {
+  max-width: 100px;
+}
+
+.itemCard > div > div {
+  display: flex;
+  gap: 4px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}

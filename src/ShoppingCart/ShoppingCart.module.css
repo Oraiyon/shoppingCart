@@ -1,0 +1,86 @@
+.emptyCartMessage {
+  margin-left: 8px;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.cartItem button {
+  background-color: white;
+  border: none;
+}
+
+.cartItem > button {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemTitle {
+  width: 175px;
+}
+
+.cartItem img {
+  max-width: 100px;
+}
+
+.buttonVersion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.buttonVersion button {
+  display: flex;
+}
+
+.buttonVersion p {
+  width: 40px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.cartItem p:last-child {
+  text-align: end;
+  width: 100px;
+}
+
+.cartItem button:hover {
+  color: red;
+}
+
+.buttonVersion p:hover {
+  background-color: black;
+  color: white;
+}
+
+.buttonVersion button:last-child:hover {
+  color: green;
+}
+
+.cartItem div:last-of-type {
+  display: flex;
+  align-items: center;
+}
+
+.inputAmount {
+  max-width: 40px;
+}
+
+.inputAmount + button {
+  margin-left: 8px;
+}
+
+.inputAmount + button:hover {
+  color: green;
+}
