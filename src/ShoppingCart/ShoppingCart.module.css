@@ -84,3 +84,8 @@
 .inputAmount + button:hover {
   color: green;
 }
+
+.total {
+  text-align: end;
+  margin-right: 8px;
+}

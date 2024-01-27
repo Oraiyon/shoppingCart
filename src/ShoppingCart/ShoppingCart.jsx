@@ -31,7 +31,6 @@ const ShoppingCart = () => {
   const increaseAmount = (index, id) => {
     const item = cart[index];
     const filtered = cart.filter((item) => item.id !== id);
-    console.log(filtered);
     item.amount++;
     filtered.splice(index, 0, item);
     setCart(filtered);
@@ -63,48 +62,56 @@ const ShoppingCart = () => {
       {cart.length === 0 ? (
         <p className={styles.emptyCartMessage}>Your Cart Is Empty</p>
       ) : (
-        <ul>
-          {cart.map((item, index) => (
-            <div key={item.id} className={styles.cartItem}>
-              <div className={styles.product}>
-                <h3 className={styles.itemTitle}>{item.title}</h3>
-                <img src={item.image} alt={item.title + " image"} />
+        <>
+          <ul>
+            {cart.map((item, index) => (
+              <div key={item.id} className={styles.cartItem}>
+                <div className={styles.product}>
+                  <h3 className={styles.itemTitle}>{item.title}</h3>
+                  <img src={item.image} alt={item.title + " image"} />
+                </div>
+                <button onClick={() => deleteItem(item.id)}>
+                  <Icon path={mdiAlphaXCircle} size={1.25} />
+                </button>
+                <div>
+                  {item.id !== selected ? (
+                    <div className={styles.buttonVersion}>
+                      <button onClick={() => decreaseAmount(index, item.id)}>
+                        <Icon path={mdiMinusCircle} size={1.25} />
+                      </button>
+                      <p onClick={() => setSelected(item.id)}>{item.amount}</p>
+                      <button onClick={() => increaseAmount(index, item.id)}>
+                        <Icon path={mdiPlusCircle} size={1.25} />
+                      </button>
+                    </div>
+                  ) : (
+                    <div className={styles.inputVersion}>
+                      <input
+                        className={inputAmount}
+                        type="text"
+                        inputMode="numeric"
+                        placeholder={item.amount}
+                      />
+                      <button
+                        className={styles.inputButton}
+                        onClick={() => changeAmount(index, item.id)}
+                      >
+                        <Icon path={mdiCheckCircle} size={1.25} />
+                      </button>
+                    </div>
+                  )}
+                </div>
+                <p>${(item.price * item.amount).toFixed(2)}</p>
               </div>
-              <button onClick={() => deleteItem(item.id)}>
-                <Icon path={mdiAlphaXCircle} size={1.25} />
-              </button>
-              <div>
-                {item.id !== selected ? (
-                  <div className={styles.buttonVersion}>
-                    <button onClick={() => decreaseAmount(index, item.id)}>
-                      <Icon path={mdiMinusCircle} size={1.25} />
-                    </button>
-                    <p onClick={() => setSelected(item.id)}>{item.amount}</p>
-                    <button onClick={() => increaseAmount(index, item.id)}>
-                      <Icon path={mdiPlusCircle} size={1.25} />
-                    </button>
-                  </div>
-                ) : (
-                  <div className={styles.inputVersion}>
-                    <input
-                      className={inputAmount}
-                      type="text"
-                      inputMode="numeric"
-                      placeholder={item.amount}
-                    />
-                    <button
-                      className={styles.inputButton}
-                      onClick={() => changeAmount(index, item.id)}
-                    >
-                      <Icon path={mdiCheckCircle} size={1.25} />
-                    </button>
-                  </div>
-                )}
-              </div>
-              <p>${item.price * item.amount}</p>
-            </div>
-          ))}
-        </ul>
+            ))}
+          </ul>
+          <p className={styles.total}>
+            Total Price: $
+            {cart
+              .reduce((acc, item) => acc + item.price * item.amount, 0)
+              .toFixed(2)}
+          </p>
+        </>
       )}
     </>
   );
